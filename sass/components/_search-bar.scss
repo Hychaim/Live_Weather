@@ -1,0 +1,31 @@
+.search-bar {
+    @extend .flex-row;
+    width: 100%;
+    padding: $step-0 0;
+
+    input{
+        width: 100%;
+        border: none;
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    button {
+        cursor: pointer;
+        margin-inline: $step--2;
+        border: none;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url('../../icons/magnifying-glass.png');
+        background-size: cover;
+        width: 50px;
+        aspect-ratio: 1/1;
+
+        &:hover,
+        &:focus-visible{
+            background-color: $clr-neutral-800;
+        }
+    }
+}

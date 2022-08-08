@@ -1,0 +1,246 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Live weather</title>
+        <link rel="icon" href="favicon.ico" />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <script defer src="js/app.js"></script>
+    </head>
+    <body>
+        <main>
+            <div class="column">
+                <div class="flex-column a-i-center">
+                    <img src="icons/icons8-partly-cloudy-day-100.png" alt="" />
+                    <h4 class="logo">Live weather</h4>
+                </div>
+                <p class="subtitle">Hychaim MAHTAB.</p>
+            </div>
+            <div class="column main-column">
+                <div class="search-bar">
+                    <input
+                        type="text"
+                        name="address-input"
+                        id="address-input"
+                        data-address-input
+                        placeholder="Search for a place here"
+                    />
+                    <button id="search" data-search-btn></button>
+                </div>
+                <div class="main-grid">
+                    <div class="card-main">
+                        <div class="place-infos">
+                            <div class="header">
+                                <h4 data-city-name>Gotham</h4>
+                                <p data-date>Today 00:32</p>
+                            </div>
+                            <div class="weather">
+                                <p data-temperature>14°</p>
+                                <p data-sky>Mostly clear</p>
+                            </div>
+                            <div class="footer">
+                                <div>
+                                    <img
+                                        src="icons/icons8-atmospheric-pressure-100.png"
+                                        alt=""
+                                    />
+                                    <span data-pressure>720hPa</span>
+                                </div>
+                                <div>
+                                    <img
+                                        src="icons/icons8-wet-100.png"
+                                        alt=""
+                                    />
+                                    <span data-humidity>32%</span>
+                                </div>
+                                <div>
+                                    <img
+                                        src="icons/icons8-wind-100.png"
+                                        alt=""
+                                    />
+                                    <span data-wind-speed>12km/h</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="temp-chart">
+                            <h5>Temperature</h5>
+                            <div class="temp-graph">
+                                <table class="area-chart">
+                                    <tbody>
+                                        <tr>
+                                            <td style="--start: 0.2; --end: 0.4" data-early-temp>
+                                                40
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="--start: 0.4; --end: 0.1" data-morn-temp>
+                                                10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="--start: 0.1; --end: 0.2" data-day-temp>
+                                                20
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="--start: 0.2; --end: 0.8" data-eve-temp>
+                                                20
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="--start: 0.8; --end: 0.6" data-night-temp>
+                                                20
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="day-temps">
+                                <ul>
+                                    <li>
+                                        <span>Morning</span>
+                                        <span data-temp-morning>15°</span>
+                                    </li>
+                                    <li>
+                                        <span>Afternoon</span>
+                                        <span data-temp-day>14°</span>
+                                    </li>
+                                    <li>
+                                        <span>Evening</span>
+                                        <span data-temp-evening>16°</span>
+                                    </li>
+                                    <li>
+                                        <span>Night</span>
+                                        <span data-temp-night>12°</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-small">
+                        <div>
+                            <h5>Wind</h5>
+                            <p class="subtitle">Today wind speed and direction</p>
+                            <p data-wind-data>12km/h 🧭North-West</p>
+                        </div>
+                        <div>
+                            <img src="icons/icons8-windsock-100.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="card card-small">
+                        <div>
+                            <h5>Rain Chance</h5>
+                            <p class="subtitle">Today rain chanse</p>
+                            <p>24%</p>
+                        </div>
+                        <div>
+                            <img src="icons/icons8-rain-100.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="card-small">
+                        <div>
+                            <h5>Pressure</h5>
+                            <p class="subtitle">Today pressure</p>
+                            <p>720 hPa</p>
+                        </div>
+                        <div>
+                            <img
+                                src="icons/icons8-atmospheric-pressure-100.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <div class="card-small">
+                        <div>
+                            <h5>UV index</h5>
+                            <p class="subtitle">Today UV index</p>
+                            <p>2</p>
+                        </div>
+                        <div>
+                            <img src="icons/icons8-summer-100.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h4>This Week</h4>
+                <ul>
+                    <li>
+                        <div>
+                            <p>Today</p>
+                            <p class="subtitle">11 Apr</p>
+                        </div>
+                        <p>17°</p>
+                        <div>
+                            <img
+                                src="icons/icons8-cloud-lightning-100.png"
+                                alt=""
+                            />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Tomorow</p>
+                            <p class="subtitle">12 Apr</p>
+                        </div>
+                        <p>16°</p>
+                        <div><img src="icons/icons8-sun-100.png" alt="" /></div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Monday</p>
+                            <p class="subtitle">13 Apr</p>
+                        </div>
+                        <p>15°</p>
+                        <div>
+                            <img src="icons/icons8-clouds-100.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Tuesday</p>
+                            <p class="subtitle">14 Apr</p>
+                        </div>
+                        <p>14°</p>
+                        <div>
+                            <img src="icons/icons8-rain-100.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Wednesday</p>
+                            <p class="subtitle">15 Apr</p>
+                        </div>
+                        <p>14°</p>
+                        <div>
+                            <img src="icons/icons8-snow-100.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Thursday</p>
+                            <p class="subtitle">16 Apr</p>
+                        </div>
+                        <p>10°</p>
+                        <div>
+                            <img src="icons/icons8-snow-storm-100.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>Friday</p>
+                            <p class="subtitle">17 Apr</p>
+                        </div>
+                        <p>5°</p>
+                        <div>
+                            <img src="icons/icons8-light-snow-100.png" alt="" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </body>
+</html>

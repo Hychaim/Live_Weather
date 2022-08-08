@@ -1,0 +1,16 @@
+*[data-pending] {
+    animation: pending 1s infinite linear alternate;
+    transition: opacity 1s ease-in;
+}
+
+@keyframes pending {
+    0% {
+        // text-shadow: 0 0 2px white;
+        opacity: 100%;
+    }
+    50%,
+    100% {
+        // text-shadow: 0 0 32px white;
+        opacity: 25%;
+    }
+}

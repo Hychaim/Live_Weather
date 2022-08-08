@@ -1,0 +1,115 @@
+.card {
+    @extend %box-shadow;
+    padding: $step--1;
+    border-radius: $step--2;
+    background-color: $clr-main-800;
+}
+
+.card-main {
+    @extend .grid-even-columns;
+    @extend .card;
+    @extend %text-shadow;
+    gap: $gap;
+    color: $clr-main-800;
+    background-image: url("../../img/Clear_Night.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    @media screen and (max-width: 1600px) {
+        grid-auto-flow: row !important;
+        grid-auto-rows: auto;
+    }
+
+    .place-infos {
+        @extend .flex-column;
+        justify-content: space-between;
+
+        .header {
+            @extend .flex-row;
+            @extend .a-i-center;
+            justify-content: space-between;
+            line-height: 1;
+        }
+
+        .weather {
+            @extend .flex-column;
+            @extend .a-i-center;
+            padding-block: $step--1;
+
+            p:first-of-type {
+                line-height: 1em;
+                font-size: $step-5;
+            }
+        }
+
+        .footer {
+            @extend .flex-row;
+            justify-content: space-between;
+
+            div {
+                @extend .flex-row;
+                @extend .a-i-center;
+                width: min-content;
+                // margin-inline: $step--2;
+            }
+        }
+
+        img {
+            max-width: $step-2;
+            width: $step-2;
+            aspect-ratio: 1 / 1;
+            margin-right: $step--2;
+        }
+    }
+
+    .temp-chart {
+        @extend .card;
+        @extend .flex-column;
+        justify-content: space-between;
+        background-color: rgba($clr-neutral-800, 0.1);
+
+        .temp-graph {
+            height: 15rem;
+        }
+
+        ul {
+            @extend .flex-row;
+            @extend .a-c-center;
+            justify-content: space-between;
+        }
+
+        li {
+            @extend .flex-column;
+            @extend .a-i-center;
+            min-width: fit-content;
+            width: 25%;
+
+            span:first-of-type {
+                font-size: $step--1;
+            }
+        }
+    }
+}
+
+.card-small {
+    @extend .card;
+    @extend .flex-row;
+    @extend .a-i-center;
+    justify-content: space-between;
+
+    div:first-of-type {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    img {
+        min-width: $step-2;
+        max-width: $step-4;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin-left: auto;
+    }
+}

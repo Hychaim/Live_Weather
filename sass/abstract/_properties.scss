@@ -1,0 +1,25 @@
+// Sizes
+$step--2: clamp(0.69rem, calc(0.64rem + 0.29vw), 0.84rem);
+$step--1: clamp(0.83rem, calc(0.72rem + 0.57vw), 1.13rem);
+$step-0: clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem);
+$step-1: clamp(1.20rem, calc(0.89rem + 1.56vw), 2.00rem);
+$step-2: clamp(1.44rem, calc(0.96rem + 2.39vw), 2.67rem);
+$step-3: clamp(1.73rem, calc(1.02rem + 3.56vw), 3.55rem);
+$step-4: clamp(2.07rem, calc(1.03rem + 5.20vw), 4.74rem);
+$step-5: clamp(2.49rem, calc(1.00rem + 7.46vw), 6.31rem);
+
+
+// Spaces
+$gap: $step-0;
+
+// Font Faces
+@font-face {
+    font-family: "Catamaran";
+    src: url("../../fonts/Catamaran-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "Genos";
+    src: url("../../fonts/Genos-VariableFont_wght.ttf");
+}
+
+

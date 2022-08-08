@@ -1,0 +1,54 @@
+// Font Families
+$ff-header: "Genos";
+$ff-title: "Genos";
+$ff-body: "Catamaran";
+
+// Font Sizes
+$fs-body: $step-0;
+$fs-subtitle: $step--1;
+
+// Headers and titles
+h1 {
+    font-family: $ff-header;
+    font-size: $step-5;
+}
+
+h2 {
+    font-family: $ff-title;
+    font-size: $step-4;
+}
+
+h3 {
+    font-family: $ff-title;
+    font-size: $step-3;
+}
+
+h4 {
+    font-family: $ff-title;
+    font-size: $step-2;
+}
+
+h5 {
+    font-family: $ff-title;
+    font-size: $step-1;
+}
+
+h6 {
+    font-family: $ff-title;
+    font-size: $step-0;
+}
+
+
+// Body
+
+body {
+    font-family: $ff-body;
+    font-size: $fs-body;
+
+    color: $clr-main-100;
+}
+
+.subtitle {
+    font-size: $fs-subtitle;
+    color: $clr-neutral-600;
+}

@@ -1,0 +1,440 @@
+@font-face {
+  font-family: "Catamaran";
+  src: url("../../fonts/Catamaran-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Genos";
+  src: url("../../fonts/Genos-VariableFont_wght.ttf");
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root *:focus {
+  outline: 2px solid hsl(210deg, 63%, 38%);
+}
+
+h1 {
+  font-family: "Genos";
+  font-size: clamp(2.49rem, 1rem + 7.46vw, 6.31rem);
+}
+
+h2 {
+  font-family: "Genos";
+  font-size: clamp(2.07rem, 1.03rem + 5.2vw, 4.74rem);
+}
+
+h3 {
+  font-family: "Genos";
+  font-size: clamp(1.73rem, 1.02rem + 3.56vw, 3.55rem);
+}
+
+h4 {
+  font-family: "Genos";
+  font-size: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem);
+}
+
+h5 {
+  font-family: "Genos";
+  font-size: clamp(1.2rem, 0.89rem + 1.56vw, 2rem);
+}
+
+h6 {
+  font-family: "Genos";
+  font-size: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
+}
+
+body {
+  font-family: "Catamaran";
+  font-size: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
+  color: hsl(244deg, 19%, 15%);
+}
+
+.subtitle {
+  font-size: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
+  color: #999999;
+}
+
+.card, .card-small, .card-main .temp-chart, .card-main {
+  padding: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
+  border-radius: clamp(0.69rem, 0.64rem + 0.29vw, 0.84rem);
+  background-color: hsl(208deg, 48%, 95%);
+}
+
+.card-main {
+  gap: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
+  color: hsl(208deg, 48%, 95%);
+  background-image: url("../../img/Clear_Night.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+@media screen and (max-width: 1600px) {
+  .card-main {
+    grid-auto-flow: row !important;
+    grid-auto-rows: auto;
+  }
+}
+.card-main .place-infos {
+  justify-content: space-between;
+}
+.card-main .place-infos .header {
+  justify-content: space-between;
+  line-height: 1;
+}
+.card-main .place-infos .weather {
+  padding-block: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
+}
+.card-main .place-infos .weather p:first-of-type {
+  line-height: 1em;
+  font-size: clamp(2.49rem, 1rem + 7.46vw, 6.31rem);
+}
+.card-main .place-infos .footer {
+  justify-content: space-between;
+}
+.card-main .place-infos .footer div {
+  width: min-content;
+}
+.card-main .place-infos img {
+  max-width: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem);
+  width: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem);
+  aspect-ratio: 1/1;
+  margin-right: clamp(0.69rem, 0.64rem + 0.29vw, 0.84rem);
+}
+.card-main .temp-chart {
+  justify-content: space-between;
+  background-color: rgba(204, 204, 204, 0.1);
+}
+.card-main .temp-chart .temp-graph {
+  height: 15rem;
+}
+.card-main .temp-chart ul {
+  justify-content: space-between;
+}
+.card-main .temp-chart li {
+  min-width: fit-content;
+  width: 25%;
+}
+.card-main .temp-chart li span:first-of-type {
+  font-size: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
+}
+
+.card-small {
+  justify-content: space-between;
+}
+.card-small div:first-of-type {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.card-small img {
+  min-width: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem);
+  max-width: clamp(2.07rem, 1.03rem + 5.2vw, 4.74rem);
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-left: auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: clamp(1rem, 0.8rem + 0.98vw, 1.5rem) 0;
+}
+.search-bar input {
+  width: 100%;
+  border: none;
+}
+.search-bar input:focus {
+  outline: none;
+}
+.search-bar button {
+  cursor: pointer;
+  margin-inline: clamp(0.69rem, 0.64rem + 0.29vw, 0.84rem);
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url("../../icons/magnifying-glass.png");
+  background-size: cover;
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+.search-bar button:hover, .search-bar button:focus-visible {
+  background-color: #cccccc;
+}
+
+.area-chart {
+  /* Dimensions */
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+.area-chart tbody {
+  width: 100%;
+  height: var(--chart-height, 100%);
+  /* Layout */
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: row;
+}
+.area-chart tbody tr:first-of-type td:first-of-type {
+  border-left: none;
+}
+.area-chart tbody tr:last-of-type td:last-of-type {
+  border-right: none;
+}
+.area-chart tr {
+  position: relative;
+  /* Even size items */
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+.area-chart tr:first-of-type,
+.area-chart tr:last-of-type {
+  flex-grow: 0.5;
+  flex-shrink: 0.5;
+  border: none;
+}
+.area-chart td {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Color */
+  background: rgba(204, 204, 204, 0.25);
+  clip-path: polygon(0% calc(100% * (1 - var(--start))), 100% calc(100% * (1 - var(--end))), 100% 100%, 0% 100%);
+  border-inline: 1px solid hsl(208deg, 48%, 95%);
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+@media screen and (max-width: 1080px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  padding: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem) clamp(1.2rem, 0.89rem + 1.56vw, 2rem);
+}
+
+.column:first-of-type {
+  display: grid;
+  align-content: space-between;
+  text-align: center;
+}
+@media screen and (max-width: 1080px) {
+  .column:first-of-type {
+    padding: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem) 0;
+    padding-bottom: 0;
+  }
+}
+.column:first-of-type img {
+  width: 30%;
+  max-width: clamp(2.49rem, 1rem + 7.46vw, 6.31rem);
+}
+
+.main-column {
+  border-inline: solid hsl(208deg, 48%, 95%) 2px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0px 0px;
+  grid-template-areas: "main main" "small small" "small small";
+  gap: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
+}
+@media screen and (max-width: 1600px) {
+  .main-grid {
+    grid-template-rows: auto 1fr 1fr;
+  }
+}
+.main-grid .card-main {
+  grid-area: main;
+}
+
+.column:last-of-type ul {
+  display: table;
+  height: 100%;
+  justify-content: space-between;
+}
+.column:last-of-type ul li {
+  display: table-row;
+}
+.column:last-of-type ul li > * {
+  border-bottom: 2px solid hsl(208deg, 48%, 95%);
+}
+.column:last-of-type ul li div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.column:last-of-type ul li div p {
+  display: block;
+}
+.column:last-of-type ul li p {
+  display: table-cell;
+  margin-inline: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
+  vertical-align: middle;
+}
+.column:last-of-type ul li img {
+  min-width: clamp(1.44rem, 0.96rem + 2.39vw, 2.67rem);
+  max-width: clamp(2.07rem, 1.03rem + 5.2vw, 4.74rem);
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-left: auto;
+  margin-block: auto;
+}
+
+.container {
+  padding: 0 1.5rem;
+  max-width: 62.5rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-even-columns, .card-main {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.flex-row, .card-main .place-infos .header, .card-main .place-infos .footer, .card-main .place-infos .footer div, .card-main .temp-chart ul, .card-small, .search-bar {
+  display: flex;
+}
+
+.flex-column, .card-main .place-infos, .card-main .place-infos .weather, .card-main .temp-chart, .card-main .temp-chart li, .column:last-of-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.a-i-center, .card-main .place-infos .header, .card-main .place-infos .weather, .card-main .place-infos .footer div, .card-main .temp-chart li, .card-small {
+  align-items: center;
+}
+
+.a-c-center, .card-main .temp-chart ul {
+  align-content: center;
+}
+
+.j-c-center {
+  justify-content: center;
+}
+
+.j-i-center {
+  justify-items: center;
+}
+
+.card-main, h4 {
+  text-shadow: 2px 4px 3px hsla(0deg, 0%, 0%, 0.3);
+}
+
+.card, .card-main, .card-main .temp-chart, .card-small {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+*[data-pending] {
+  animation: pending 1s infinite linear alternate;
+  transition: opacity 1s ease-in;
+}
+
+@keyframes pending {
+  0% {
+    opacity: 100%;
+  }
+  50%, 100% {
+    opacity: 25%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
