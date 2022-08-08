@@ -226,34 +226,7 @@ function displayWindData(windSpeed, windDegrees) {
 
 function degreesToDirection(degrees) {
     console.log(degrees);
-    let direction = "";
-    switch (true) {
-        case ((degrees > 22.5) && (degrees <= 67.5)):
-            direction = "North-East";
-            break;
-        case ((degrees > 67.5) && (degrees <= 112.5)):
-            direction = "East";
-            break;
-        case ((degrees > 112.5) && (degrees <= 157.5)):
-            direction = "South-East";
-            break;
-        case ((degrees > 157.5) && (degrees <= 202.5)):
-            direction = "South";
-            break;
-        case ((degrees > 202.5) && (degrees <= 247.5)):
-            direction = "South-West";
-            break;
-        case ((degrees > 247.5) && (degrees <= 292.5)):
-            direction = "West";
-            break;
-        case ((degrees > 292.5) && (degrees <= 337.5)):
-            direction = "North-West";
-            break;
-        case (((degrees >= 337.5) && (degrees <= 360)) || ((degrees >= 0) && (degrees <= 22.5))):
-            direction = "North";
-            break;
-        default:
-            break;
-    }
-    return direction;
+    var directions = ["North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"]
+    var index = Math.round(((degrees %= 360) < 0 ? degrees + 360 : degrees) / 45) % 8;
+    return directions[index];
 }
