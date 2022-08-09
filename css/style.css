@@ -142,7 +142,7 @@ body {
 .card-main {
   gap: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
   color: hsl(208deg, 48%, 95%);
-  background-image: url("../../img/Clear_Night.png");
+  background-image: url("../../img/11n.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -281,7 +281,7 @@ body {
   bottom: 0;
   left: 0;
   /* Color */
-  background: rgba(204, 204, 204, 0.25);
+  background: rgba(204, 204, 204, 0.5);
   clip-path: polygon(0% calc(100% * (1 - var(--start))), 100% calc(100% * (1 - var(--end))), 100% 100%, 0% 100%);
   border-inline: 1px solid hsl(208deg, 48%, 95%);
 }

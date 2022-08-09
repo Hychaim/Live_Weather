@@ -3,13 +3,14 @@ const addressInput = document.querySelector("[data-address-input]");
 const searchBtn = document.querySelector("[data-search-btn]");
 
 // Main-card
+const cardMain = document.getElementById("card-main");
 const cityName = document.querySelector("[data-city-name]");
 const date = document.querySelector("[data-date]");
 const temperature = document.querySelector("[data-temperature]");
 const sky = document.querySelector("[data-sky]");
-const pressure = document.querySelector("[data-pressure]");
+const sunrise = document.querySelector("[data-sunrise]");
 const humidity = document.querySelector("[data-humidity]");
-const windSpeed = document.querySelector("[data-wind-speed]");
+const sunset = document.querySelector("[data-sunset]");
 
 // Main-card -- Temperatures
 const tempMorning = document.querySelector("[data-temp-morning");
@@ -18,11 +19,29 @@ const tempEvening = document.querySelector("[data-temp-evening");
 const tempNight = document.querySelector("[data-temp-night");
 
 // Small Cards
-// Wind
 const windData = document.querySelector("[data-wind-data]");
+const rainChance = document.querySelector("[data-rain-chance]");
+const pressure = document.querySelector("[data-pressure]");
+const uvi = document.querySelector("[data-uvi]");
 
 // All display elements
-const variablesElements = [cityName, date, temperature, sky, pressure, humidity, windSpeed, tempMorning, tempDay, tempEvening, tempNight, windData];
+const variablesElements = [
+    cityName,
+    date,
+    temperature,
+    sky,
+    sunrise,
+    humidity,
+    sunset,
+    tempMorning,
+    tempDay,
+    tempEvening,
+    tempNight,
+    windData,
+    rainChance,
+    pressure,
+    uvi
+];
 
 // Variables
 let night = false;
@@ -97,15 +116,24 @@ function displayWeatherData(placeData, weatherData) {
 
     sky.innerText = weatherData.current.weather[0].main;
 
-    pressure.innerText = weatherData.current.pressure + "hPa";
+    let options = { timeZone: weatherData.timezone, hour: '2-digit', minute: '2-digit' }
+    sunrise.innerText = new Date(weatherData.current.sunrise * 1000).toLocaleTimeString("fr", options);
 
     humidity.innerText = weatherData.current.humidity + "%";
 
-    windSpeed.innerText = Math.round(weatherData.current.wind_speed * 3.6) + "km/h";
+    sunset.innerText = new Date(weatherData.current.sunset * 1000).toLocaleTimeString("fr", options);;
 
     displayTempInfos(weatherData.daily[0].temp);
 
+    displayCardBg(weatherData.current.weather[0].icon);
+
     displayWindData(Math.round(weatherData.current.wind_speed * 3.6), weatherData.current.wind_deg);
+
+    rainChance.innerText = Math.round(parseFloat(weatherData.daily[0].pop) * 100) + "%";
+
+    pressure.innerText = weatherData.current.pressure + "hPa";
+
+    uvi.innerText = weatherData.current.uvi;
 }
 
 function handleDateTime(dt, timezone) {
@@ -175,7 +203,7 @@ function displayTempGraph(temps) {
     }
 
     let scaledTemp = [];
-    let scaleMin = -10 < min ? -10 : min;
+    let scaleMin = -5 < min ? -5 : min;
     let scaleMax = 40 > max ? 40 : max;
     for (const key in temps) {
         scaledTemp[key] = scale(temps[key], scaleMin, scaleMax, 0.1, 0.9).toFixed(2);
@@ -201,7 +229,7 @@ function displayTempGraph(temps) {
         }
     }
 
-    incrementerEarlyStart = setInterval(function () { increaseValue(earlyEl, 'start', (scaledTemp['morn'] - 0.1), 'incrementerEarlyStart') }, 50);
+    incrementerEarlyStart = setInterval(function () { increaseValue(earlyEl, 'start', (scaledTemp['morn'] - 0.05), 'incrementerEarlyStart') }, 50);
     incrementerEarlyEnd = setInterval(function () { increaseValue(earlyEl, 'end', scaledTemp['morn'], 'incrementerEarlyEnd') }, 50);
     incrementerMornStart = setInterval(function () { increaseValue(mornEl, 'start', scaledTemp['morn'], 'incrementerMornStart') }, 50);
     incrementerMornEnd = setInterval(function () { increaseValue(mornEl, 'end', scaledTemp['day'], 'incrementerMornEnd') }, 50);
@@ -210,17 +238,26 @@ function displayTempGraph(temps) {
     incrementerEveStart = setInterval(function () { increaseValue(eveEl, 'start', scaledTemp['eve'], 'incrementerEveStart') }, 50);
     incrementerEveEnd = setInterval(function () { increaseValue(eveEl, 'end', scaledTemp['night'], 'incrementerEveEnd') }, 50);
     incrementerNightStart = setInterval(function () { increaseValue(nightEl, 'start', scaledTemp['night'], 'incrementerNightStart') }, 50);
-    incrementerNightEnd = setInterval(function () { increaseValue(nightEl, 'end', (scaledTemp['night'] - 0.1), 'incrementerNightEnd') }, 50);
+    incrementerNightEnd = setInterval(function () { increaseValue(nightEl, 'end', (scaledTemp['night'] - 0.05), 'incrementerNightEnd') }, 50);
 }
 
 function scale(number, inMin, inMax, outMin, outMax) {
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
+function displayCardBg(weatherCode){
+    const clearBackgrounds = ["01d", "02d", "03d", "04d", "09d", "10d", "13d"];
+    if (clearBackgrounds.includes(weatherCode)) {
+        cardMain.style.color = "#201F2E";
+    } else {
+        cardMain.style.color = "#ECF3F8";
+    }
+    
+    cardMain.style.backgroundImage = `url('../img/${weatherCode}.jpg')`;
+}
+
 function displayWindData(windSpeed, windDegrees) {
-    console.log("🔷 〰 file: app.js 〰 line 221 〰 displayWindData 〰 windDegrees", windDegrees)
     let direction = degreesToDirection(windDegrees);
-    console.log("🔷 〰 file: app.js 〰 line 223 〰 displayWindData 〰 direction", direction)
     windData.innerText = `${windSpeed}km/h 🧭${direction}`;
 }
 
