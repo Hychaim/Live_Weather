@@ -245,20 +245,41 @@ function scale(number, inMin, inMax, outMin, outMax) {
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
-function displayCardBg(weatherCode){
-    const clearBackgrounds = ["01d", "02d", "03d", "04d", "09d", "10d", "13d"];
+function displayCardBg(weatherCode) {
+    const tempChart = document.getElementById("temp-chart");
+    const clearBackgrounds = ["01d", "02d", "03d", "09d", "10d", "13d"];
     if (clearBackgrounds.includes(weatherCode)) {
         cardMain.style.color = "#201F2E";
+        tempChart.style.backgroundColor = "rgba(50, 50, 50, 0.1)";
     } else {
         cardMain.style.color = "#ECF3F8";
+        tempChart.style.backgroundColor = "rgba(204, 204, 204, 0.1)";
     }
-    
+
     cardMain.style.backgroundImage = `url('../img/${weatherCode}.jpg')`;
 }
 
-function displayWindData(windSpeed, windDegrees) {
+function displayWindData(windSpeed, windDegrees) {          
     let direction = degreesToDirection(windDegrees);
-    windData.innerText = `${windSpeed}km/h 🧭${direction}`;
+    windData.innerText = `${windSpeed}km/h ${direction}`;
+
+    const compassArrow = document.getElementById("compass-arrow");
+
+
+    function rotateArrow(target) {
+        if(target > 180) target -= 360;
+        // Previous value
+        previousAngle = getRotationDegrees(compassArrow);
+        // Increase Value
+        if (previousAngle < target) compassArrow.style.setProperty('transform', `rotate(${previousAngle + (step * 100)}deg)`);
+        if (previousAngle > target) compassArrow.style.setProperty('transform', `rotate(${previousAngle - (step * 100)}deg)`);
+        // If value is reached
+        if (Math.round(parseFloat(previousAngle)) == Math.round(parseFloat(target))) {
+            clearInterval(incrementerArrowRotation);
+        }
+    }
+
+    incrementerArrowRotation = setInterval(function () { rotateArrow(windDegrees) }, 10);
 }
 
 function degreesToDirection(degrees) {
@@ -266,4 +287,19 @@ function degreesToDirection(degrees) {
     var directions = ["North", "North-East", "East", "South-East", "South", "South-West", "West", "North-West"]
     var index = Math.round(((degrees %= 360) < 0 ? degrees + 360 : degrees) / 45) % 8;
     return directions[index];
+}
+
+function getRotationDegrees(obj) {
+    var matrix = getComputedStyle(obj).getPropertyValue("-webkit-transform") ||
+        getComputedStyle(obj).getPropertyValue("-moz-transform") ||
+        getComputedStyle(obj).getPropertyValue("-ms-transform") ||
+        getComputedStyle(obj).getPropertyValue("-o-transform") ||
+        getComputedStyle(obj).getPropertyValue("transform");
+    if (matrix !== 'none') {
+        var values = matrix.split('(')[1].split(')')[0].split(',');
+        var a = values[0];
+        var b = values[1];
+        var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+    } else { var angle = 0; }
+    return angle;
 }

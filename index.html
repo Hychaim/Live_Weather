@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="temp-chart">
+                        <div class="temp-chart" id="temp-chart">
                             <h5>Temperature</h5>
                             <div class="temp-graph">
                                 <table class="area-chart">
@@ -124,10 +124,11 @@
                         <div>
                             <h5>Wind</h5>
                             <p class="subtitle">Today wind speed and direction</p>
-                            <p data-wind-data>12km/h 🧭North-West</p>
+                            <p data-wind-data>12km/h North-West</p>
                         </div>
-                        <div>
-                            <img src="icons/icons8-windsock-100.png" alt="" />
+                        <div class="compass">
+                            <img src="icons/compass.png" alt="" />
+                            <img id="compass-arrow" src="icons/compass_arrow.png" alt="" style="transform: rotate(45deg);" />
                         </div>
                     </div>
                     <div class="card card-small">
