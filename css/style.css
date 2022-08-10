@@ -89,7 +89,7 @@ select {
   }
 }
 :root *:focus {
-  outline: 2px solid hsl(210deg, 63%, 38%);
+  outline: 2px solid #24619e;
 }
 
 h1 {
@@ -125,7 +125,7 @@ h6 {
 body {
   font-family: "Catamaran";
   font-size: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
-  color: hsl(244deg, 19%, 15%);
+  color: #201f2e;
 }
 
 .subtitle {
@@ -136,13 +136,13 @@ body {
 .card, .card-small, .card-main .temp-chart, .card-main {
   padding: clamp(0.83rem, 0.72rem + 0.57vw, 1.13rem);
   border-radius: clamp(0.69rem, 0.64rem + 0.29vw, 0.84rem);
-  background-color: hsl(208deg, 48%, 95%);
+  background-color: #ecf3f8;
 }
 
 .card-main {
   gap: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
-  color: hsl(208deg, 48%, 95%);
-  background-image: url("../../img/11n.jpg");
+  color: #ecf3f8;
+  background-image: url("../../img/10n.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -281,9 +281,20 @@ body {
   bottom: 0;
   left: 0;
   /* Color */
-  background: rgba(204, 204, 204, 0.5);
+  background: rgba(224, 232, 235, 0.25);
   clip-path: polygon(0% calc(100% * (1 - var(--start))), 100% calc(100% * (1 - var(--end))), 100% 100%, 0% 100%);
-  border-inline: 1px solid hsl(208deg, 48%, 95%);
+  border-inline: 1px solid #ecf3f8;
+}
+
+.compass {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.compass img {
+  grid-row: 1;
+  grid-column: 1;
 }
 
 main {
@@ -318,7 +329,7 @@ main {
 }
 
 .main-column {
-  border-inline: solid hsl(208deg, 48%, 95%) 2px;
+  border-inline: solid #ecf3f8 2px;
 }
 
 .main-grid {
@@ -347,7 +358,7 @@ main {
   display: table-row;
 }
 .column:last-of-type ul li > * {
-  border-bottom: 2px solid hsl(208deg, 48%, 95%);
+  border-bottom: 2px solid #ecf3f8;
 }
 .column:last-of-type ul li div {
   display: table-cell;

@@ -1,0 +1,11 @@
+.compass {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+
+    img {
+        grid-row: 1;
+        grid-column: 1;
+    }
+}

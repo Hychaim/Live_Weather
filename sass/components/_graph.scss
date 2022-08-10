@@ -47,7 +47,7 @@
         left: 0;
 
         /* Color */
-        background: rgba($clr-neutral-800, 0.5);
+        background: rgba($clr-main-700, 0.25);
         clip-path: polygon(0% calc(100% * (1 - var(--start))), 100% calc(100% * (1 - var(--end))), 100% 100%, 0% 100%);
 
         border-inline: 1px solid $clr-main-800;
