@@ -48,7 +48,7 @@ let night = false;
 const step = 0.01;
 
 // Geocoding API
-const GEOCODING_API_KEY = "483ee3e05aca5c61375fb0f20b0bf769";
+const GEOCODING_API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 const LIMIT = 1;
 
 async function getCoordinatesByAddress(address) {
@@ -65,7 +65,7 @@ async function getCoordinatesByAddress(address) {
 }
 
 // Weather API
-const WEATHER_API_KEY = "0f2d4af59d8fa39de5f0b128b8488e00";
+const WEATHER_API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 const EXCLUDE = "hourly,minutely";
 
 async function getWeatherByCoordinates(placeData) {
